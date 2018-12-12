@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form action="#" th:action="@{/}" th:object="${customerBean}" method="post">
+            <table>
+                <tr>
+                    <td>Naam:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>Telefoonnummer:</td>
+                    <td><input type="text" th:field="*{phoneNumber}" /></td>
+                    <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Telefoon Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

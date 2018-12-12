@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:remove="all">treinoverzicht</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<p th:text="#{greeting(${name})}">Hello!</p>
+	<p th:if="${name.length() gt 10}">
+		Wow! You've got a long name (more than 10 chars)! <br />
+	</p>
+	<p>
+		You have been successfully subscribed to the <b>Fake newsletter</b> on
+		<span th:text="${#dates.format(subscriptionDate)}"></span>
+	</p>
+	<p>treinen :</p>
+	<ul class="list-group" th:each="train : ${trains}">
+		<li  class="list-group-item" th:text="${train.number}">Reading</li>
+		<li  class="list-group-item" th:text="${train.departureTime}">Reading</li>
+		<li class="list-group-item" th:text="${train.finalDestination}">Reading</li>
+		<li class="list-group-item" th:text="${train.category}">Reading</li>
+		<li class="list-group-item" th:text="${train.contracter}">Reading</li>
+		<li class="list-group-item" th:text="${train.platform}">Reading</li>
+	</ul>
+	<p>
+		Regards, <br /> &emsp; <em>The Robert Team</em>
+	</p>
+</body>
+</html>
+

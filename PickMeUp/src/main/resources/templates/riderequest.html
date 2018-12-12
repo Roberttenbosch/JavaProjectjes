@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>home</title>
+<link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+	rel="stylesheet" media="screen" />
+<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+    <body>
+        <form action="#" th:action="@{/riderequest}" th:object="${rideRequestBean}" method="post">
+            <table>
+                <tr>
+                    <td>Van:</td>
+                    <td><input type="text" th:field="*{fromLocation}" /></td>
+                    <td th:if="${#fields.hasErrors('fromLocation')}" th:errors="*{fromLocation}">van Error</td>
+                </tr>
+                <tr>
+                    <td>Naar:</td>
+                    <td><input type="text" th:field="*{toLocation}" /></td>
+                    <td th:if="${#fields.hasErrors('toLocation')}" th:errors="*{toLocation}">naar Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/layout :: head">
+<title>home</title>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	 <div class="container">
+		<div class= "col-md embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" th:src="${(mapSrcUrl != null && !#strings.isEmpty(mapSrcUrl)) ? mapSrcUrl : 'https://www.google.com/maps/embed/v1/search?key=AIzaSyBVuL6bOPvoQ7UKzQVDhUMipEic6zvC9Cc&q=Vonderlaan+5+Apeldoorn'}" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
+	
+	<div th:insert="~{fragments/footer :: footer}">...</div>
+</body>
+</html>
