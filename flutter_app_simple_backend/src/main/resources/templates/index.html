@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>simple backend</title>
+    <link rel="stylesheet" href="/main.css"/>
+</head>
+
+<body>
+
+<h1>afbeelding upload</h1>
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="image : ${images}">
+            <td th:text="${image.title}"/>
+            <td><a th:href="@{'/image/' + ${image.id} + '/raw'}"><img th:src="@{'/image/' + ${image.id} + '/raw'}"
+                                                                         class="thumbnail"/></a></td>
+            <td>
+                <form th:method="delete" th:action="@{'/image/' + ${image.id}}">
+                    <input type="submit" value="Delete"/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form method="post" enctype="multipart/form-data" action="/image">
+        <p><input type="file" name="file"/></p>
+<!--        <select name="imageType">
+            <option th:each="imageType : ${T(com.flutter.app.Image.model.ImageType).values()}"
+                    th:value="${imageType}"
+                    th:text="${imageType}">
+            </option>
+        </select>-->
+        <p><input type="submit" value="Upload"/></p>
+    </form>
+</div>
+
+</body>
+</html>
