@@ -11,11 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jms.annotation.EnableJms;
 
-@SpringBootApplication
-@ComponentScan
 @EnableJpaRepositories
 @EnableJms
-@EnableAutoConfiguration(exclude =
+@SpringBootApplication(exclude =
 { DataSourceAutoConfiguration.class, SecurityAutoConfiguration.class })
 public class DispatcherApplication extends SpringBootServletInitializer 
 {
